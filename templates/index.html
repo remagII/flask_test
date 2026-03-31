@@ -1,0 +1,25 @@
+{% extends "base.html" %}
+
+{% block content %}
+
+<h1>Create a New Item</h1>
+
+<ul>
+    {% for item in items %}
+    <li>
+        {{ item.name }}
+
+        <!-- FIX: correct parameter -->
+        <a href="{{ url_for('update', item_id=item.id) }}">Edit</a>
+
+        <!-- FIX: correct parameter + proper form syntax -->
+        <form action="{{ url_for('delete', item_id=item.id) }}" method="POST" style="display:inline;">
+            <button type="submit">Delete</button>
+        </form>
+    </li>
+    {% endfor %}
+</ul>
+
+<a href="{{ url_for('create') }}">Create a New Item</a>
+
+{% endblock %}

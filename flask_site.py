@@ -2,7 +2,7 @@ from flask import Flask, render_template, request, redirect, url_for
 from flask_sqlalchemy import SQLAlchemy
 from markupsafe import escape
 
-app = Flask(_name_)
+app = Flask(__name__)
 
 # FIX: correct number of slashes + proper config value
 app.config['SQLALCHEMY_DATABASE_URI'] = 'sqlite:///items.db'
